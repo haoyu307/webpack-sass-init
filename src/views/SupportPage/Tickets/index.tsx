@@ -24,9 +24,7 @@ import {MenuItem} from 'components/Popover/Menu';
 import {filterTickets, sortTickets} from 'utils';
 import CalendarCheck from 'assets/calendarcheck.svg';
 import Telescope from 'assets/telescope.svg';
-import {useDispatch} from 'react-redux';
 
-// let tickets = [];
 export function TicketsCard() {
     const search = useSelector(searchSelector);
     const dispatch = useAppDispatch();
