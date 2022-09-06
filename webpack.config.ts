@@ -15,7 +15,13 @@ const webpackConfig = (): Configuration => ({
         plugins: [new TsconfigPathsPlugin({configFile: './tsconfig.json'})],
         alias: {
             components: path.resolve(__dirname, 'src/components'),
+            views: path.resolve(__dirname, 'src/views'),
+            pages: path.resolve(__dirname, 'src/pages'),
+            layouts: path.resolve(__dirname, 'src/layouts'),
+            utils: path.resolve(__dirname, 'src/utils'),
             assets: path.resolve(__dirname, 'src/assets'),
+            store: path.resolve(__dirname, 'src/store'),
+            types: path.resolve(__dirname, 'src/types'),
         },
     },
     output: {

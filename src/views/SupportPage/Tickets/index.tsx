@@ -1,7 +1,12 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {BiSearch} from 'react-icons/bi';
 import {useMemo, useState} from 'react';
 import {GoChevronDown} from 'react-icons/go';
+import {useSelector} from 'react-redux';
+
+import {searchSelector} from 'store/selectors/home';
+import {setSearch} from 'store/modules/home';
+import {useAppDispatch} from 'store';
 
 import {Card} from 'components/Card';
 import {CardBody} from 'components/CardBody';
@@ -19,10 +24,18 @@ import {MenuItem} from 'components/Popover/Menu';
 import {filterTickets, sortTickets} from 'utils';
 import CalendarCheck from 'assets/calendarcheck.svg';
 import Telescope from 'assets/telescope.svg';
+import {useDispatch} from 'react-redux';
 
 // let tickets = [];
 export function TicketsCard() {
-    const [search, setSearch] = useState('');
+    const search = useSelector(searchSelector);
+    const dispatch = useAppDispatch();
+    const setSearchWord = useCallback(
+        (newValue: string) => {
+            dispatch(setSearch(newValue));
+        },
+        [dispatch],
+    );
     const [isOpen, trigger] = useState(false);
     const [statusFilter, setStatusFilter] = useState('');
     const [loading, setLoading] = useState(false);
@@ -159,9 +172,9 @@ export function TicketsCard() {
                     <Input
                         placeholder="Search Tickets"
                         icon={<BiSearch />}
-                        onChange={(e) => handleChange(e, setSearch)}
+                        onChange={(e) => handleChange(e, setSearchWord)}
                         value={search}
-                        onClear={() => setSearch('')}
+                        onClear={() => setSearchWord('')}
                     />
                 </ActionGroup>
             </CardHeader>
