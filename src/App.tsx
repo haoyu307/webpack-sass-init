@@ -1,11 +1,17 @@
-import React from "react";
-import "./styles.scss";
+import React from 'react';
+import {BrowserRouter as Router} from 'react-router-dom';
+import {StandardLayout} from './layouts';
+import {HomePage} from './pages';
 
-const App: React.FC = () => {
-  return (
-    <div className="wrapper">
-      <h1>React 17 and TypeScript 4 App!🚀</h1>
-    </div>
-  );
-};
+function App() {
+    return (
+        <Router>
+            {/* Will be Router here */}
+            <StandardLayout>
+                <HomePage />
+            </StandardLayout>
+        </Router>
+    );
+}
+
 export default App;
