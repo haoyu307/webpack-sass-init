@@ -40,7 +40,7 @@ const webpackConfig = (): Configuration => ({
             },
             {
                 test: /\.s?css$/,
-                use: ['style-loader', 'css-loader'],
+                use: ['style-loader', 'css-loader', 'sass-loader'],
             },
             {
                 test: /\.svg$/,
@@ -55,11 +55,6 @@ const webpackConfig = (): Configuration => ({
             },
         ],
     },
-    //   devServer: {
-    //     port: 3000,
-    //     open: true,
-    //     historyApiFallback: true,
-    //   },
     plugins: [
         new HtmlWebpackPlugin({
             // HtmlWebpackPlugin simplifies creation of HTML files to serve your webpack bundles

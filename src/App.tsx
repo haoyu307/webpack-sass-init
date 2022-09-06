@@ -6,6 +6,8 @@ import {HomePage} from './pages';
 
 import {store} from 'store';
 
+import './styles.scss';
+
 function App() {
     return (
         <Provider store={store}>
